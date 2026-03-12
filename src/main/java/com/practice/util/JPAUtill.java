@@ -7,7 +7,7 @@ import jakarta.persistence.Persistence;
 public class JPAUtill {
 
 
-    private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("productPU");
+    private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("ecomPU");
 
     public static EntityManager getEntityManager(){
         return emf.createEntityManager();
