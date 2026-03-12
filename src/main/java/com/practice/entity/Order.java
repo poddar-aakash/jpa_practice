@@ -17,7 +17,7 @@ public class Order {
     private String customerName;
 
 
-    @CreationTimestamp
+    @Column(columnDefinition = "DATE DEFAULT CURRENT_DATE")
     private Date orderDate;
 
     public Order() {
