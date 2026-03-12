@@ -1,0 +1,15 @@
+package com.practice.util;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
+
+public class JPAUtill {
+
+
+    private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("productPU");
+
+    public static EntityManager getEntityManager(){
+        return emf.createEntityManager();
+    }
+}
