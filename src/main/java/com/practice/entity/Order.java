@@ -7,6 +7,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import java.sql.Date;
 
 @Entity
+@Table(name = "orders")
 public class Order {
 
     @Id
@@ -17,7 +18,8 @@ public class Order {
     private String customerName;
 
 
-    @Column(columnDefinition = "DATE DEFAULT CURRENT_DATE")
+//    @Column(columnDefinition = "DATE DEFAULT CURRENT_DATE")
+    @CreationTimestamp
     private Date orderDate;
 
     public Order() {
