@@ -26,6 +26,14 @@ public class OrderItem {
         this.product = product;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public Product getProduct() {
         return product;
     }
@@ -40,5 +48,14 @@ public class OrderItem {
 
     public void setOrder(Order order) {
         this.order = order;
+    }
+
+    @Override
+    public String toString() {
+        return "OrderItem{" +
+                "id=" + id +
+                ", order=" + order +
+                ", product=" + product +
+                '}';
     }
 }

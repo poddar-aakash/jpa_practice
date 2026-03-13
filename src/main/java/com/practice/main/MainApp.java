@@ -1,8 +1,11 @@
 package com.practice.main;
 
 import com.practice.dao.OrderDao;
+import com.practice.dao.OrderItemDao;
 import com.practice.dao.ProductDao;
 import com.practice.entity.Order;
+import com.practice.entity.OrderItem;
+import com.practice.entity.Product;
 import com.practice.util.JPAUtill;
 import jakarta.persistence.EntityManager;
 
@@ -13,6 +16,8 @@ public class MainApp {
         EntityManager em =  JPAUtill.getEntityManager();
         ProductDao productDao = new ProductDao(em);
         OrderDao orderDao = new OrderDao(em);
+        OrderItemDao orderItemDao =  new OrderItemDao(em);
+
 
 
 //        Product p1 = new Product();
@@ -44,32 +49,41 @@ public class MainApp {
         // ORDER OPERATIONS
         //========================
 
-        Order order1 = new Order();
-        order1.setCustomerName("Akash");
+//        Order order1 = new Order();
+//        order1.setCustomerName("Akash");
+//
+//        // Create Order
+////        em.getTransaction().begin();
+////        orderDao.saveOrder(order1);
+////        em.getTransaction().commit();
+//
+//
+//        // Get Order by Id
+//        Order order = orderDao.getOrder(1L);
+//        System.out.println(order);
+//
+//
+//        // Get All Orders
+//        List<Order> orders = orderDao.getAllOrders();
+//        for(Order o : orders){
+//            System.out.println(o);
+//        }
+//
+//        //==========Delete order by id ===========
+//          em.getTransaction().begin();
+//          orderDao.deleteOrder(2L);
+//          em.getTransaction().commit();
 
-        // Create Order
-//        em.getTransaction().begin();
-//        orderDao.saveOrder(order1);
-//        em.getTransaction().commit();
-
-
-        // Get Order by Id
+        Product product = productDao.getProduct(1L);
         Order order = orderDao.getOrder(1L);
-        System.out.println(order);
 
+        OrderItem item = new OrderItem();
+        item.setOrder(order);
+        item.setProduct(product);
 
-        // Get All Orders
-        List<Order> orders = orderDao.getAllOrders();
-        for(Order o : orders){
-            System.out.println(o);
-        }
-
-        //==========Delete order by id ===========
-          em.getTransaction().begin();
-          orderDao.deleteOrder(2L);
-          em.getTransaction().commit();
-
-
+        em.getTransaction().begin();
+        orderItemDao.saveOrderItem(item);
+        em.getTransaction().commit();
 
 
     }

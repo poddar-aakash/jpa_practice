@@ -2,6 +2,7 @@
     <persistence-unit name="ecomPU">
         <class>com.practice.entity.Order</class>
         <class>com.practice.entity.Product</class>
+        <class>com.practice.entity.OrderItem</class>
         <properties>
             <property name="jakarta.persistence.jdbc.url"
                       value="jdbc:mysql://localhost:3306/productPU"/>
