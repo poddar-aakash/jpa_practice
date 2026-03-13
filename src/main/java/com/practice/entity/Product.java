@@ -3,6 +3,8 @@ package com.practice.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class Product {
 
@@ -15,6 +17,9 @@ public class Product {
 
     @Column(nullable = false)
     private Long price;
+
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    private List<OrderItem> orderItems;
 
     public Product() {
     }

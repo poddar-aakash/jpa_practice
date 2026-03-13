@@ -3,7 +3,6 @@ package com.practice.main;
 import com.practice.dao.OrderDao;
 import com.practice.dao.ProductDao;
 import com.practice.entity.Order;
-import com.practice.entity.Product;
 import com.practice.util.JPAUtill;
 import jakarta.persistence.EntityManager;
 

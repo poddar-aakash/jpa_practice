@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.sql.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "orders")
@@ -18,9 +19,11 @@ public class Order {
     private String customerName;
 
 
-//    @Column(columnDefinition = "DATE DEFAULT CURRENT_DATE")
     @CreationTimestamp
     private Date orderDate;
+
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    private List<OrderItem> orderItems;
 
     public Order() {
     }
